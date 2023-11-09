@@ -1,0 +1,19 @@
+\chapter{Sistema Multiagentes}
+
+\section{Teoria dos Grafos}
+No estudo da interação e comportamento entre sistemas dinâmicos, as interconexões entre os agentes e o fluxo de informações formam uma rede de comunicação. Essa rede é modelada através da teoria dos grafos em que cada sistema é representado por um nó, também chamado de agente.
+% Adicionar Referência do livro que fala sobre
+
+Um grafo é um par $G = (V, E)$, tal que $V = \{v_{1},v_{2}, ...,v_{N}\}$ é um conjunto de $N$ nós ou vértices e $E$ um conjunto de vetores ou arcos. Um elemento pertencente a $E$ é um par $(v_{i}, v_{j})$ tal que é um vetor que liga $v_{i}$ à $v_{j}$, e é representado como uma flecha em que a cauda está em $v_{i}$ e a ponta em $v_{j}$ como demonstrado na figura. 
+% Adicionar Grafo exemplo desenhado : exemplo de nós e arcos em um grafo
+
+Os graus de liberdade de entrada de um dado nó $v_i$ é definido como o número de vetores que a ponta da flecha se encontra em $v_i$. Do mesmo modo, os graus de liberdade de saída de um nó $v_i$ é dado pelo número de vetores que em $v_i$ se encontra a cauda da flecha.
+
+Associado à cada aresta de um elemento em $E = (v_i, v_j)$ tem-se um peso $a_{ij} > 0$. O peso $a_{ij}$ representa a força de interação entre os nós $v_i$ e $v_j$. De modo que quanto maior o peso maior a influência tem o comportamento do agente $j$ sobre o agente $i$.
+    %revisar esse parágrafo
+Um grafo é dito bidirecional se e somente se $a_{ij} \neq 0$ e $a_{ji} \neq 0$, então tem-se que a comunicação entre agentes flui bidirecionalmente. Um grafo é dito unidirecional se $a_{ij} = a_{ji}$, para qualquer $i$ e $j$.
+
+
+\section{Teoria algébrica dos grafos e consenso do controle cooperativo}
+\label{sec:posi_ori}
+
