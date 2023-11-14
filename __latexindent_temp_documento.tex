@@ -239,7 +239,8 @@
 % \membrodabancaseiscentro{}
 % \membrodabancaseisies{Universidade do Membro da Banca sete (SIGLA)}
 
-\begin{document}	
+
+\begin{document}
 
 % Elementos pré-textuais
 \imprimircapa
@@ -253,8 +254,7 @@
 \imprimirresumo{1-pre-textuais/resumo}
 % \imprimirabstract{1-pre-textuais/abstract}
 \renewcommand*\listfigurename{Lista de Figuras} 
-
-%Se você comentar esta linha o título da lista fica: LISTA DE ILUSTRAÇÕES
+% Se você comentar esta linha o título da lista fica: LISTA DE ILUSTRAÇÕES
 % \imprimirlistadeilustracoes
 % \imprimirlistadetabelas
 % \imprimirlistadequadros
@@ -263,29 +263,29 @@
 % \imprimirlistadeabreviaturasesiglas
 % \imprimirlistadesimbolos{1-pre-textuais/lista-de-simbolos}   
 \imprimirsumario
-	
-\setcounter{table}{0}% Deixe este comando antes da primeira tabela.
-%Elementos textuais
+
+\setcounter{table}{0} % Deixe este comando antes da primeira tabela.
+
+% Elementos textuais
 \textual
 \input{2-textuais/1-introducao}
 \input{2-textuais/2-Multiagente}
-\input{2-textuais/3-Redes de Petri}
-\input{2-textuais/4-Simulação}
+\input{2-textuais/3-Redes-de-Petri}
+\input{2-textuais/4-Simulacao}
 \input{2-textuais/5-conclusao}	
 
-%Elementos pós-textuais	
+% Elementos pós-textuais	
 \bibliography{3-pos-textuais/referencias}
-%\imprimirglossario %	
+% \imprimirglossario %	
 % \imprimirapendices
-% Adicione aqui os apendices do seu trabalho
+% Adicione aqui os apêndices do seu trabalho
 % \input{3-pos-textuais/apendices/apendice-a}
 % \input{3-pos-textuais/apendices/apendice-b}
 % \input{3-pos-textuais/apendices/apendice-c}
-
 % \imprimiranexos
 % Adicione aqui os anexos do seu trabalho
 % \input{3-pos-textuais/anexos/anexo-a}
 % \input{3-pos-textuais/anexos/anexo-b}		
-%\imprimirindice
+% \imprimirindice
 
 \end{document}
