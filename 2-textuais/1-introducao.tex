@@ -21,14 +21,12 @@
 
 Um sistema industrial é composto por sensores, atuadores, sinalizadores, controladores entre outros componentes voltados para a realização de determinada cadeia de processos dentro de uma linha de produção. Tal que para realizar determinado processo é necessário uma sincronia entre diversos equipamentos, sensores e atuadores ao longo da planta industrial. Além do desafio de sincronizar uma gama de processos, os sistemas modernos possuem a necessidade de adaptar-se a novas variações e configurações, abrindo espaço para máquinas e sistemas com programação mais robusta e reconfigurável. 
 Dado este desafio, as redes de Petri coloridas se oferecem como uma ótima ferramenta de modelagem para os sistemas modernos de manufatura em linha de produção em que há um aumento da versatilidade e flexibilidade da estrutura e também a necessidade de uma programação com alto nível de abstração. 
-\cite{WENZELBURGER2019492}
+\cite{framework}
 
-De acordo com
-%\cite{discrete}
+De acordo com\cite{discrete}
 , as redes de Petri têm sido consideradas com um modelo adequado para um controle supervisório com o objetivo de abranger uma grande classe de problemas e explorar a análise algébrica necessária para otimização. Tratando-se também da análise para a planta não alcançar determinadas marcações indesejadas;
 
-As redes de Petri também são uma ferramenta de modelagem inicial para o algoritmo de programação com ferramentas intrínsecas que analisam o algoritmo para evitar que o sistema entre em exceções,
-%\cite{embeddedOO}
+As redes de Petri também são uma ferramenta de modelagem inicial para o algoritmo de programação com ferramentas intrínsecas que analisam o algoritmo para evitar que o sistema entre em exceções,\cite{embeddedOO}
 
 % An industrial system is composed of sensors, actuators, signals, controllers and other components dedicated to the implementation of a certain process in a production line. So that to achieve a certain process, there is a need for synchronization between different equipment throughout the plant.
 
@@ -37,7 +35,7 @@ A planta industrial escolhida para este trabalho é relacionada a um processo de
 %The industrial plant chosen for this work is related to an assembly process, where it has two conveyors, one that receives the upper part of the object (lid) and the second receives the lower part of the object (base), to position the parts in a determined location of the conveyor there is the clamp, a metal structure that holds the part to the edge of the conveyor, such clamp has two types of movement, to hold and to release the parts. To move the lid and mount it on top of the base, a Cartesian robotic arm is used, which moves on the X axis, orthogonal to the conveyors, and moves on the Z axis, which goes up and down to raise and lower the lid part respectively. .
 
 Para modelagem e controle desse sistema composto por vários agentes, escolheu-se a abordagem por redes de Petri coloridas. As redes de Petri  coloridas são uma ferramenta gráfica e matemática que se adaptam bem a um grande numero de aplicações, tais como protocolos de comunicação, controle de oficinas de fabricação. 
-A complexidade dos sistemas, em particular o de fabricação automatizada, leva a uma decomposição de vários níveis de controle, tais como planejamento, escalonamento, coordenação global, coordenação de sub-sistemas e controle direto (autômatos programáveis conectados aos sensores e aos atuadores). %\cite{vallete}
+A complexidade dos sistemas, em particular o de fabricação automatizada, leva a uma decomposição de vários níveis de controle, tais como planejamento, escalonamento, coordenação global, coordenação de sub-sistemas e controle direto (autômatos programáveis conectados aos sensores e aos atuadores). \cite{vallete}
 % For modeling and control of this system composed of several agents, the Petri net approach was chosen. The Petri net is a graphical and mathematical tool that adapts well to a large number of applications, such as communication protocols, control of manufacturing workshops. The complexity of systems, particularly automated manufacturing, leads to a decomposition of several levels of control, such as planning, scheduling, global coordination, subsystem coordination and direct control (programmable automata connected to sensors and actuators).
 
 Posteriormente à modelagem por redes de Petri, tal rede será programada utilizando linguagem de programação de auto nível através do paradigma de orientação a objeto, facilitando assim a implementação em sistemas reais, comunicação em auto nível entre o sistema e outros elementos da industria, como clps, supervisórios, sistemas web e possibilitando maior flexibilidade na programação, manutenção e simplificação do código além das ferramentas de análise do modelo a partir da análise da rede de Petri correspondente.
@@ -46,12 +44,10 @@ Um sistema multiagente é um sistema que possui mais de um agente, representado 
 
 Para a modelagem do sistema em redes de Petri são utilizados os lugares, transições e fichas. O lugar pode ser interpretado como uma condição, um estado associado, por exemplo, sensor ligado, eixo em movimento, peça na posição, etc. Já a transição é associada a uma evento que ocorre no sistema, a um acionamento proposto, tal como movimentar a peça, movimentar robô, acionar a esteira, entre outros. Por fim as fichas são uma indicação que a condição associada ao lugar é satisfeita.
 
-Em 
-%\cite{design}, 
+Em \cite{design}, 
 sistemas de manufatura reorganizáveis são modelados pela linguagem UML, para descrever as reconfigurações do sistema e na segunda fase  os diagramas são transformados em submodelos da rede de Petri e a relação entre os submodelos e subsistemas são sintetizados em um modelo de rede de Petri de auto nível. Os dois métodos podem analisar comportamentos importantes em relação as propriedades do sistema que são vitais para a modelagem prática dos mesmos.
 
-Em 
-%\cite{hybridOO} 
+Em \cite{hybridOO} 
 é feita a modelagem de um sistema de produção híbrida, baseada em redes de Petri representando as partes discretas do sistema, equações diferencias representando as partes contínuas e paradigma de orientação a objetos para lidar com a complexidade se sistemas reais, em que cada sub rede é relacionada a uma classe modelando o comportamento de cada objeto da classe. Na dinâmica do sistema a marcação representa o presente estado do objeto. Cada grupo de ação é representada por uma classe eque possui um modelo definido pela RP. 
 
 No presente artigo, para a associação entre os elementos básicos de uma rede de Petri (lugar, transição, fichas) e os elementos básicos de uma planta industrial (sensores, atuadores), modelou-se as seguintes associações, todos os sensores e atuadores da planta são representados por lugares na rede de Petri, tal que o mesmo possui uma ou nenhuma ficha representando respectivamente o estado de ligado ou desligado), acionado ou não acionado, e as transições são lógicas de comando que relacionam lugares e memórias no sistema. 
