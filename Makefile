@@ -1,30 +1,9 @@
-########################################################################
-## Customizações do abnTeX2 (http://abnTeX2.googlecode.com)           ##
-## para a Universidade Estadual do Ceara - UECE                       ##
-##                                                                    ##
-## This work may be distributed and/or modified under the             ## 
-## conditions of the LaTeX Project Public License, either version 1.3 ##
-## of this license or (at your option) any later version.             ##
-## The latest version of this license is in                           ##
-##   http://www.latex-project.org/lppl.txt                            ##
-## and version 1.3 or later is part of all distributions of LaTeX     ##
-## version 2005/12/01 or later.                                       ##
-##                                                                    ##
-## This work has the LPPL maintenance status `maintained'.            ##
-##                                                                    ##
-## The Current Maintainer of this work is Thiago Nascimento           ##
-##                                                                    ##
-## Project available on: https://github.com/thiagodnf/uecetex2        ##
-##                                                                    ##
-## Further information about abnTeX2                                  ##
-## are available on http://abntex2.googlecode.com/                    ##
-##                                                                    ##
-########################################################################
-
-filename=documento
+filename = documento
+output_folder = output/
+final_output_folder = ../
 
 all: compile
-	
+
 compile:
 	@echo "*********************************************************"
 	@echo "*                                                       *"
@@ -33,16 +12,16 @@ compile:
 	@echo "*********************************************************"
 	@echo "Compilando..."
 	bibtex $(filename)
-	pdflatex $(filename).tex
-	makeglossaries $(filename)
-	makeindex $(filename)
-	pdflatex $(filename).tex
-	pdflatex $(filename).tex
+	pdflatex -output-directory=$(output_folder) $(filename).tex
+	makeglossaries -d $(output_folder) $(filename)
+	makeindex -s $(output_folder)$(filename).ist -o $(output_folder)$(filename).ind $(output_folder)$(filename).idx
+	pdflatex -output-directory=$(output_folder) $(filename).tex
+	pdflatex -output-directory=$(output_folder) $(filename).tex
+	@powershell -Command "Copy-Item -Path '$(output_folder)$(filename).pdf' -Destination '$(final_output_folder)Davi Alexandre - Dissertation.pdf'"
 	@echo "Processo finalizado com sucesso!"
 
-	
 clean:
 	@echo -n "Limpando arquivos auxiliares...\n"
-	@del *.out *.fls *.fdb_latexmk *.gz *.aux *.alg *.acr *.dvi *.gls *.log *.bbl *.blg *.ntn *.not *.lof *.lot *.toc *.loa *.lsg *.nlo *.nls *.ilg *.ind *.ist *.glg *.glo *.xdy *.acn *.idx *.loq *~
-	@del -f $(filename).pdf
+	@del /Q $(output_folder)*.out $(output_folder)*.fls $(output_folder)*.fdb_latexmk $(output_folder)*.gz $(output_folder)*.aux $(output_folder)*.alg $(output_folder)*.acr $(output_folder)*.dvi $(output_folder)*.gls $(output_folder)*.log $(output_folder)*.bbl $(output_folder)*.blg $(output_folder)*.ntn $(output_folder)*.not $(output_folder)*.lof $(output_folder)*.lot $(output_folder)*.toc $(output_folder)*.loa $(output_folder)*.lsg $(output_folder)*.nlo $(output_folder)*.nls $(output_folder)*.ilg $(output_folder)*.ind $(output_folder)*.ist $(output_folder)*.glg $(output_folder)*.glo $(output_folder)*.xdy $(output_folder)*.acn $(output_folder)*.idx $(output_folder)*.loq *~
+	@del /Q $(output_folder)$(filename).pdf
 	@echo "Processo finalizado com sucesso!"

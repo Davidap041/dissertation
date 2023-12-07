@@ -1,1 +1,30 @@
 \chapter{Redes de Petri}
+\section{Modelagem de Sistemas}
+Na modelagem de sistemas a eventos discretos tem-se três elementos principais utilizados na modelagem eventos(instantes e mudanças de estados), atividades(evolução do sistema físico entre dois eventos) e processos (sequência de eventos e atividades no sistema). 
+
+Na evolução dos processos no sistema os processos podem ocorrer de forma totalmente independente entre si, enquanto outras atividades necessitam de uma determinada sincronização ou até uma sequência de eventos prévios. Uma forma de diferenciação de interações entre processos é apresentada por \cite{vallete}, como:
+
+\textbf{Cooperação:} Os processos convergem para um objetivo comum, de modo que anteriormente há uma relativa independência antes do ponto de sincronização.
+
+\textbf{Competição:} Os processos necessitam de um dado recurso, caso esse recurso seja abundante para todos os processos, dados processos poderiam ser descritos de forma independente, caso contrário faz-se necessário o compartilhamento de recursos envolvendo uma exclusão mútua a partir de um ponto de sincronização.
+
+\textbf{Pseudo-Paralelismo:} O paralelismo é apenas aparente e os eventos por mais que sejam independentes nunca serão simultâneos pois são acionados por um relógio comum, a exemplo de um sistema operacional que por mais que processe várias tarefas, porém o processador só processa um ciclo de instrução por vez.
+
+\textbf{Paralelismo Verdadeiro:} Os eventos podem ocorrer de forma simultânea, não existindo uma escala de tempo em comum, a exemplo de vários processadores operando tarefas distintas.
+
+\section{Representação em máquina de estados}
+Uma das representações mais clássicas para modelagem de sistemas à eventos discretos é a máquina de estados, para o caso de uma número de estados finitos enumera-se os possíveis estados e descreve-se os eventos referente as mudanças de estado, descrevendo-se assim cada estado a a partir do estado anterior.
+
+O modela matemático para a máquina de estado finita é dada a partir da equação \ref*{eq:finit_state_machine_equation}, em que $E$ é um conjunto finito de estados, dado pelo estado inicial $E_0$, um alfabeto de entrada $A$, e uma função de transição de estados $\theta$, dado por $\theta : E \times A \rightarrow E$, associando cada par de estado-entrada ao próximo estado.
+
+\begin{equation}\label{eq:finit_state_machine_equation}
+    M = (E; A; \theta; E_0)
+\end{equation}
+
+\section{Modelagem utilizando Rede de Petri}
+
+A rede de Petri é uma ferramenta gráfica e matemática para modelagem e controle de sistemas à eventos discretos, dado que o sistema a ser escolhido é um sistema que pode ser modelado através de tal ferramenta, com o intuito de obter uma visualização gráfica do processo, implementar lógica de controle e sincronismo, analisar propriedades da rede entre outras.
+
+A descrição dos eventos e transições do sistema é dada através da rede de petri pelos lugares, fichas e transições, para representar os "estados" do sistema são utilizados os lugares, já as transições movimentam os recursos, ou seja, as fichas de um lugar para outro, dada a condição que a transição só possa ser disparada caso os lugares a ela ligada estejam completas com os recursos requisitados, fazendo assim interdependências em que um determinado estado só pode ser alcançado caso determinadas condições satisfeitas.
+
+Para modelagem e controle desse sistema composto por vários agentes, escolheu-se a abordagem por redes de Petri coloridas. As redes de Petri  coloridas são uma ferramenta gráfica e matemática que se adaptam bem a um grande numero de aplicações, tais como protocolos de comunicação, controle de oficinas de fabricação. 
