@@ -15,11 +15,24 @@ Na evolução dos processos no sistema os processos podem ocorrer de forma total
 \section{Representação em máquina de estados}
 Uma das representações mais clássicas para modelagem de sistemas à eventos discretos é a máquina de estados, para o caso de uma número de estados finitos enumera-se os possíveis estados e descreve-se os eventos referente as mudanças de estado, descrevendo-se assim cada estado a a partir do estado anterior.
 
-O modela matemático para a máquina de estado finita é dada a partir da equação \ref*{eq:finit_state_machine_equation}, em que $E$ é um conjunto finito de estados, dado pelo estado inicial $E_0$, um alfabeto de entrada $A$, e uma função de transição de estados $\theta$, dado por $\theta : E \times A \rightarrow E$, associando cada par de estado-entrada ao próximo estado.
+O modelo matemático para a máquina de estado finita é dada a partir da equação \ref*{eq:finit_state_machine_equation}, em que $E$ é um conjunto finito de estados, dado pelo estado inicial $E_0$, um alfabeto de entrada $A$, e uma função de transição de estados $\theta$, dado por $\theta : E \times A \rightarrow E$, associando cada par de estado-entrada ao próximo estado.
 
 \begin{equation}\label{eq:finit_state_machine_equation}
     M = (E; A; \theta; E_0)
 \end{equation}
+De acordo com \cite{vallete} este modelo explicita a noção de eventos e parcialmente a de atividade, não explicitando, entretanto, a noção do processo com as evoluções simultâneas de diversos processos paralelos, de modo que uma máquina de estado finita descreve apenas um único processo sequencial.
+
+\subsection{Modelagem de processos sequenciais}
+Para a descrição de vários processos sequências, uma das soluções é representar o sistema por um conjunto de máquinas de estados finitos. Quando as máquinas de estados são independentes, esse modelo se aplica sem dificuldade, porém quando existe competição ou cooperação entre os processos faz-se necessário o uso de processos sequenciais comunicantes. A sincronização é descrita através da intervenção na função de transição de estados $\theta$ de uma máquina.
+
+\subsubsection{Representação com refinamentos sucesssivos}
+Um dos contrapontos dessa abordagem é que independente do método utilizado, a representação das comunicações entre as máquinas é diferente da representação interna da sequência de uma máquina. Portanto, tal abordagem não é compatível com a abordagem top-down de refinamento sucessivos. É necessário desde do início da modelagem a escolha de uma decomposição que não será colocada em causa a posteriori. 
+
+\subsubsection{Explosão combinatória}
+Outro ponto de análise dessa forma de modelagem é que para cada informação partilhada entre as máquina ou troca de sinais entre as máquinas é necessário analisar o comportamento global do sistema através do recálculo de uma nova máquina de estado que descreva o sistema de forma global. Neste caso, ocorre a problemática da explosão combinatória do número de estados definida pela relação entre $k$ máquinas e $n$ estados, produzindo uma máquina de $n^k $ estados, ocorrendo uma explosão combinatória a medida que k e n aumentam.
+
+\subsubsection{Não-independência de submáquinas e bloqueio}
+
 
 \section{Modelagem utilizando Rede de Petri}
 
